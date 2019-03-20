@@ -1,6 +1,6 @@
 {
   "name": "otp-agent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OTP(One-Time-Pssword) generator for JavaScript",
   "main": "index.js",
   "scripts": {
