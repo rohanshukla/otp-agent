@@ -1,0 +1,27 @@
+{
+  "name": "otp-agent",
+  "version": "1.0.0",
+  "description": "OTP(One-Time-Pssword) generator for JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuklarohan/otp-agent.git"
+  },
+  "keywords": [
+    "otp",
+    "otp-agent",
+    "otp-generator",
+    "otp-creator",
+    "node-otp",
+    "otp-js"
+  ],
+  "author": "Rohan Shukla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shuklarohan/otp-agent/issues"
+  },
+  "homepage": "https://github.com/shuklarohan/otp-agent#readme"
+}
