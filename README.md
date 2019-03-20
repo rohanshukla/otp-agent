@@ -1,6 +1,6 @@
 # <span style="color:#ff8333">OTP-Agent</span> ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
-OTP(One-Time-Pssword) generator for JavaScript
+OTP(One-Time-Password) generator for JavaScript
 
 ## Installation
 
