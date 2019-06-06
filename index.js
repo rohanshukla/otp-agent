@@ -49,6 +49,7 @@ module.exports = {
             createOptions.specialChars ? keywords += specialChars : null;
         }
 
+        // If Choices are null then all keywords are included in OTP generation
         if (isEmptyObject(createOptions) || (
             !createOptions.hasOwnProperty('numbers') &&
             !createOptions.hasOwnProperty('alphabets') &&

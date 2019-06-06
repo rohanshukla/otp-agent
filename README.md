@@ -1,4 +1,4 @@
-# <span style="color:#ff8333">OTP-Agent</span> ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+# <span style="color:#ff8333">OTP-Agent</span> [![NPM Version](https://badge.fury.io/js/otp-agent.svg)](https://www.npmjs.com/package/otp-agent) ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 OTP(One-Time-Password) generator for JavaScript
 
@@ -30,6 +30,7 @@ console.log(otp);
 
 ## Note
 * Can be used to generate OTP using numbers, alphabets, upperCaseAlphabets, special characters and have option to choose either one of them.
+* otpLength - length of OTP, default length is 10 and OTP length cannot be more than 10 characters.
 * By default all options are true if any options are not provided.
 
 ## Author
