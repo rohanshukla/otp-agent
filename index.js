@@ -22,8 +22,12 @@ let isEmptyObject = function (object) {
 }
 
 module.exports = {
-    generateOTP: function (length, choices) {
-
+    generateOTP: function (length, choices = {
+        numbers: false,
+        alphabets: false,
+        upperCaseAlphabets: false,
+        specialChars: false
+    }) {
         const numbers = '0123456789';
         const alphabets = 'abcdefghijklmnopqrstuvwxyz';
         const upperCaseAlphabets = alphabets.toUpperCase();
