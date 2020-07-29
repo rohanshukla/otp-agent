@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuklarohan/otp-agent.git"
+    "url": "git+https://github.com/rohanshukla/otp-agent.git"
   },
   "keywords": [
     "otp",
@@ -21,7 +21,7 @@
   "author": "Rohan Shukla",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuklarohan/otp-agent/issues"
+    "url": "https://github.com/rohanshukla/otp-agent/issues"
   },
-  "homepage": "https://github.com/shuklarohan/otp-agent#readme"
+  "homepage": "https://github.com/rohanshukla/otp-agent#readme"
 }

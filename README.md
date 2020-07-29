@@ -1,4 +1,4 @@
-# <span style="color:#ff8333">OTP-Agent</span> [![NPM Version](https://badge.fury.io/js/otp-agent.svg)](https://www.npmjs.com/package/otp-agent) ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+# <span style="color:#ff8333">OTP-Agent</span> [![NPM Version](https://badge.fury.io/js/otp-agent.svg)](https://www.npmjs.com/package/otp-agent) ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Total Download](https://img.shields.io/npm/dt/otp-agent.svg)
 
 OTP(One-Time-Password) generator for JavaScript
 
@@ -34,7 +34,7 @@ console.log(otp);
 * By default all options are true if any options are not provided.
 
 ## Author
-Rohan Shukla [GitHub](https://github.com/shuklarohan) [LinkedIn](https://www.linkedin.com/in/shuklarohan)
+Rohan Shukla [GitHub](https://github.com/rohanshukla) [LinkedIn](https://www.linkedin.com/in/shuklarohan)
 
 ## License
 © Licensed under the [MIT License](LICENSE).
