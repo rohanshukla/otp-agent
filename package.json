@@ -1,10 +1,12 @@
 {
   "name": "otp-agent",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "OTP(One-Time-Password) generator for JavaScript",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist",
   "scripts": {
     "start": "tsc",
+    "build": "tsc -p .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

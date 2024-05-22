@@ -13,19 +13,36 @@ Installation is done using the
 $ npm install otp-agent
 ```
 
-## Example & Usage
+## Example & Usage (With import statement)
 ```js
-const otpAgent = require('otp-agent');
+import { generateOTP } from 'otp-agent';
 
-const otpLength = 6;
-var otp = otpAgent.generateOTP(otpLength);
+let otp = generateOTP(4);
 console.log(otp);
 
-otp = otpAgent.generateOTP(otpLength, { numbers: true });
+otp = generateOTP(8, { numbers: true, alphabets: true });
+console.log(otp);
+```
+
+## Example & Usage (With reqire statement)
+```js
+const { generateOTP } = require("otp-agent");
+
+// Default OTP length is 6 and max is 10
+var otp = generateOTP();
 console.log(otp);
 
-otp = otpAgent.generateOTP(otpLength, { numbers: true, alphabets: true, upperCaseAlphabets: true, specialChars: true });
+otp = generateOTP(6, { upperCaseAlphabets: true, specialChars: true });
 console.log(otp);
+
+otp = generateOTP(8, {
+  numbers: true,
+  alphabets: true,
+  upperCaseAlphabets: true,
+  specialChars: true,
+});
+console.log(otp);
+
 ```
 
 ## Note
