@@ -1,9 +1,10 @@
 {
   "name": "otp-agent",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "OTP(One-Time-Password) generator for JavaScript",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
+    "start": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/rohanshukla/otp-agent/issues"
   },
-  "homepage": "https://github.com/rohanshukla/otp-agent#readme"
+  "homepage": "https://github.com/rohanshukla/otp-agent#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
 }

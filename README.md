@@ -30,8 +30,8 @@ console.log(otp);
 
 ## Note
 * Can be used to generate OTP using numbers, alphabets, upperCaseAlphabets, special characters and have option to choose either one of them.
-* otpLength - length of OTP, default length is 10 and OTP length cannot be more than 10 characters.
-* By default all options are true if any options are not provided.
+* otpLength - length of OTP, default length is 6 and OTP length cannot be more than 10 characters.
+* By default only number options is true if no options are not provided.
 
 ## Author
 Rohan Shukla [GitHub](https://github.com/rohanshukla) [LinkedIn](https://www.linkedin.com/in/shuklarohan)
