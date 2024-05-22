@@ -13,7 +13,7 @@ Installation is done using the
 $ npm install otp-agent
 ```
 
-## Example & Usage (With import statement)
+## Example & Usage (with <span style="color:#ffa500">*import*</span> statement)
 ```js
 import { generateOTP } from 'otp-agent';
 
@@ -24,7 +24,7 @@ otp = generateOTP(8, { numbers: true, alphabets: true });
 console.log(otp);
 ```
 
-## Example & Usage (With reqire statement)
+## Example & Usage (with <span style="color:#ffa500">*require*</span> statement)
 ```js
 const { generateOTP } = require("otp-agent");
 
@@ -42,13 +42,12 @@ otp = generateOTP(8, {
   specialChars: true,
 });
 console.log(otp);
-
 ```
 
 ## Note
-* Can be used to generate OTP using numbers, alphabets, upperCaseAlphabets, special characters and have option to choose either one of them.
-* otpLength - length of OTP, default length is 6 and OTP length cannot be more than 10 characters.
-* By default only number options is true if no options are not provided.
+* OTP can be generated with numbers, alphabets, uppercase alphabets, and special characters, and either of them can be chosen.
+* The OTP has a default length of 6 characters and a maximum length of 10.
+* If no choices are passed as a payload, then by default only number options are true.
 
 ## Author
 Rohan Shukla [GitHub](https://github.com/rohanshukla) [LinkedIn](https://www.linkedin.com/in/shuklarohan)
