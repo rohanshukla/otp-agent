@@ -13,7 +13,7 @@ Installation is done using the
 $ npm install otp-agent
 ```
 
-## Example & Usage (with <span style="color:#ffa500">*import*</span> statement)
+## Example & Usage (with [import](https://nodejs.org/api/esm.html) statement)
 ```js
 import { generateOTP } from 'otp-agent';
 
@@ -24,7 +24,7 @@ otp = generateOTP(8, { numbers: true, alphabets: true });
 console.log(otp);
 ```
 
-## Example & Usage (with <span style="color:#ffa500">*require*</span> statement)
+## Example & Usage (with [require](https://nodejs.org/api/modules.html) statement)
 ```js
 const { generateOTP } = require("otp-agent");
 
