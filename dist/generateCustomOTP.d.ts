@@ -9,6 +9,6 @@
 interface IPayload {
     length?: number;
 }
-export declare const generateCustomOTP: (characters?: string, { length }?: IPayload) => string;
+export declare const generateCustomOTP: (characters: string, { length }?: IPayload) => string;
 export {};
 //# sourceMappingURL=generateCustomOTP.d.ts.map

@@ -4,10 +4,10 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateCustomOTP = void 0;
-const generateCustomOTP = (characters = "", { length = 6 } = {}) => {
+const generateCustomOTP = (characters, { length = 6 } = {}) => {
     if (length > 10)
         length = 10;
-    if (characters === "")
+    if (!characters)
         return "";
     let OTP = "";
     for (let i = 0; i < length; i++) {

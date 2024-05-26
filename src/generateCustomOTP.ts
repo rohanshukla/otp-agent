@@ -13,11 +13,11 @@ interface IPayload {
 }
 
 export const generateCustomOTP = (
-  characters: string = "",
+  characters: string,
   { length = 6 }: IPayload = {}
 ): string => {
   if (length > 10) length = 10;
-  if (characters === "") return "";
+  if (!characters) return "";
   let OTP = "";
   for (let i = 0; i < length; i++) {
     OTP += characters[Math.floor(Math.random() * characters.length)];
