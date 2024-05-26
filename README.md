@@ -1,8 +1,9 @@
 # <span style="color:#ff8333">OTP-Agent</span> [![NPM Version](https://badge.fury.io/js/otp-agent.svg)](https://www.npmjs.com/package/otp-agent) ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Total Download](https://img.shields.io/npm/dt/otp-agent.svg)
 
 OTP(One-Time-Password) generator for JavaScript.
-  - Generate OTP using numbers, alphabets and specialChars
-  - Generate Custom OTP using specified characters
+
+- Generate OTP using numbers, alphabets and specialChars
+- Generate Custom OTP using specified characters
 
 ## Installation
 
@@ -27,7 +28,7 @@ otp = generateOTP({ length: 4, numbers: true, alphabets: true });
 console.log(otp); // i5v3
 
 // Custom OTP with specified characters (characters is mandatory field)
-const customOTP = generateCustomOTP({ characters: "Abc@123", length: 5 });
+const customOTP = generateCustomOTP("Abc@123", { length: 5 });
 console.log(customOTP); // 1@c3c
 ```
 
@@ -40,7 +41,7 @@ const { generateOTP } = require("otp-agent");
 var otp = generateOTP();
 console.log(otp); // 543921
 
-otp = generateOTP({  length: 4, upperCaseAlphabets: true, specialChars: true });
+otp = generateOTP({ length: 4, upperCaseAlphabets: true, specialChars: true });
 console.log(otp); // RNRSXUQS
 
 otp = generateOTP({

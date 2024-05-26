@@ -13,11 +13,11 @@ const generateOTP = ({ numbers, alphabets, upperCaseAlphabets, specialChars, len
         (alphabets ? ALPHABETS : "") +
         (upperCaseAlphabets ? UPPERCASE_ALPHABETS : "") +
         (specialChars ? SPECIAL_CHARACTERS : "");
-    let OTP = "";
     if (!keywords)
         keywords = NUMBERS;
     if (length > 10)
         length = 10;
+    let OTP = "";
     for (let i = 0; i < length; i++) {
         OTP += keywords[Math.floor(Math.random() * keywords.length)];
     }
