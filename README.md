@@ -18,13 +18,17 @@ $ npm install otp-agent
 ## Example & Usage (with [import](https://nodejs.org/api/esm.html) statement)
 
 ```js
-import { generateOTP } from "otp-agent";
+import { generateOTP, generateCustomOTP } from "otp-agent";
 
 let otp = generateOTP();
 console.log(otp); // 526775
 
 otp = generateOTP({ length: 4, numbers: true, alphabets: true });
 console.log(otp); // i5v3
+
+// Custom OTP with specified characters (characters is mandatory field)
+const customOTP = generateCustomOTP({ characters: "Abc@123", length: 5 });
+console.log(customOTP); // 1@c3c
 ```
 
 ## Example & Usage (with [require](https://nodejs.org/api/modules.html) statement)
