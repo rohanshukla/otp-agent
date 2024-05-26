@@ -7,8 +7,8 @@ exports.generateOTP = void 0;
 const NUMBERS = "0123456789";
 const ALPHABETS = "abcdefghijklmnopqrstuvwxyz";
 const UPPERCASE_ALPHABETS = ALPHABETS.toUpperCase();
-const SPECIAL_CHARACTERS = "!@#&";
-const generateOTP = (length = 6, { numbers, alphabets, upperCaseAlphabets, specialChars } = {}) => {
+const SPECIAL_CHARACTERS = "!@#?%&*";
+const generateOTP = ({ numbers, alphabets, upperCaseAlphabets, specialChars, length = 6, } = {}) => {
     let keywords = (numbers ? NUMBERS : "") +
         (alphabets ? ALPHABETS : "") +
         (upperCaseAlphabets ? UPPERCASE_ALPHABETS : "") +

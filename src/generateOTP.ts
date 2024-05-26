@@ -4,8 +4,8 @@
 
 /**
  * Generate OTP of the length
- * @param  {number} length length of OTP.
  * @param  {object} payload
+ * @param  {number} length length of OTP.
  * @param  {boolean} numbers Default: `true` true value includes numbers in OTP
  * @param  {boolean} alphabets Default: `false` true value includes alphabets in OTP
  * @param  {boolean} upperCaseAlphabets Default: `false` true value includes upperCase alphabets in OTP
@@ -13,6 +13,7 @@
  */
 
 interface IPayload {
+  length?: number;
   numbers?: boolean;
   alphabets?: boolean;
   upperCaseAlphabets?: boolean;
@@ -22,12 +23,15 @@ interface IPayload {
 const NUMBERS = "0123456789";
 const ALPHABETS = "abcdefghijklmnopqrstuvwxyz";
 const UPPERCASE_ALPHABETS = ALPHABETS.toUpperCase();
-const SPECIAL_CHARACTERS = "!@#&";
+const SPECIAL_CHARACTERS = "!@#?%&*";
 
-export const generateOTP = (
-  length: number = 6,
-  { numbers, alphabets, upperCaseAlphabets, specialChars }: IPayload = {}
-): string => {
+export const generateOTP = ({
+  numbers,
+  alphabets,
+  upperCaseAlphabets,
+  specialChars,
+  length = 6,
+}: IPayload = {}): string => {
   let keywords: string =
     (numbers ? NUMBERS : "") +
     (alphabets ? ALPHABETS : "") +
