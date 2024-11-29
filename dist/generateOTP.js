@@ -21,7 +21,7 @@ const SPECIAL_CHARACTERS = "!@#?%&*";
  * @param {boolean} [options.specialChars=false] - Include special characters in the OTP.
  * @returns {string} - Generated OTP.
  */
-const generateOTP = ({ length = 6, numbers = true, alphabets = false, upperCaseAlphabets = false, specialChars = false, } = {}) => {
+const generateOTP = ({ length = 6, numbers = false, alphabets = false, upperCaseAlphabets = false, specialChars = false, } = {}) => {
     let characterPool = "";
     if (numbers)
         characterPool += NUMBERS;
