@@ -1,14 +1,10 @@
 /**
- * @author : Rohan Shukla
+ * @file generateOTP.ts
+ * @description Utility to generate OTP (One Time Password) with customizable options.
+ * @author Rohan Shukla
  */
 /**
- * Generate OTP of the length
- * @param  {object} payload
- * @param  {number} length length of OTP.
- * @param  {boolean} numbers Default: `true` true value includes numbers in OTP
- * @param  {boolean} alphabets Default: `false` true value includes alphabets in OTP
- * @param  {boolean} upperCaseAlphabets Default: `false` true value includes upperCase alphabets in OTP
- * @param  {boolean} specialChars Default: `false` true value includes specialChars in OTP
+ * Interface for OTP generation options.
  */
 interface IPayload {
     length?: number;
@@ -17,6 +13,17 @@ interface IPayload {
     upperCaseAlphabets?: boolean;
     specialChars?: boolean;
 }
-export declare const generateOTP: ({ numbers, alphabets, upperCaseAlphabets, specialChars, length, }?: IPayload) => string;
+/**
+ * Generate an OTP (One Time Password) with the specified options.
+ *
+ * @param {IPayload} options - Options for OTP generation.
+ * @param {number} [options.length=6] - Length of the OTP.
+ * @param {boolean} [options.numbers=true] - Include numbers in the OTP.
+ * @param {boolean} [options.alphabets=false] - Include lowercase alphabets in the OTP.
+ * @param {boolean} [options.upperCaseAlphabets=false] - Include uppercase alphabets in the OTP.
+ * @param {boolean} [options.specialChars=false] - Include special characters in the OTP.
+ * @returns {string} - Generated OTP.
+ */
+export declare const generateOTP: ({ length, numbers, alphabets, upperCaseAlphabets, specialChars, }?: IPayload) => string;
 export {};
 //# sourceMappingURL=generateOTP.d.ts.map
