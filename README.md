@@ -35,14 +35,18 @@ console.log(customOTP); // 1@c3c
 ## Example & Usage (with [require](https://nodejs.org/api/modules.html) statement)
 
 ```js
-const { generateOTP } = require("otp-agent");
+const { generateOTP, generateCustomOTP } = require("otp-agent");
 
 // Default OTP length is 6 and max is 10
 var otp = generateOTP();
 console.log(otp); // 543921
 
 otp = generateOTP({ length: 4, upperCaseAlphabets: true, specialChars: true });
-console.log(otp); // RNRSXUQS
+console.log(otp); // RNRS
+
+// Custom OTP with specified characters (characters is mandatory field)
+const customOTP = generateCustomOTP("Abc@123", { length: 5 });
+console.log(customOTP); // 1@c3c
 
 otp = generateOTP({
   length: 8,
