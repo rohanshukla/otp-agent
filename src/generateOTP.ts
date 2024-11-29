@@ -33,7 +33,7 @@ const SPECIAL_CHARACTERS = "!@#?%&*";
  */
 export const generateOTP = ({
   length = 6,
-  numbers = true,
+  numbers = false,
   alphabets = false,
   upperCaseAlphabets = false,
   specialChars = false,
