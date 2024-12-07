@@ -1,2 +1,3 @@
-export { generateOTP } from "./generateOTP";
-export { generateCustomOTP } from "./generateCustomOTP";
+/* istanbul ignore file */
+export { generateOTP } from "./otp/generateOTP";
+export { generateCustomOTP } from "./otp/generateCustomOTP";
