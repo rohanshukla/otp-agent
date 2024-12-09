@@ -3,7 +3,7 @@
   "version": "3.1.1",
   "description": "OTP(One-Time-Password) generator for JavaScript",
   "main": "dist/index.js",
-  "types": "dist",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "tsc",
     "build": "tsc -p .",
@@ -18,8 +18,17 @@
     "otp-agent",
     "otp-generator",
     "otp-creator",
+    "node-otp-generator",
+    "node-otp-creator",
     "node-otp",
-    "otp-js"
+    "otp-js",
+    "totp",
+    "hotp",
+    "node-totp",
+    "node-hotp",
+    "totp-generator",
+    "hotp-generator",
+    "password-generator"
   ],
   "author": "Rohan Shukla",
   "license": "MIT",
