@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateTOTP = void 0;
 const crypto_1 = require("crypto");
-const base32ToBuffer_1 = require("../utils/base32ToBuffer");
+const stringToBuffer_1 = require("../utils/stringToBuffer");
 /**
  * Generates a Time-based One-Time Password (TOTP) based on the provided secret and options.
  *
@@ -32,14 +32,14 @@ const generateTOTP = ({ secret, encoding = "base32", timeStep = 30, digits = 6, 
         if (!/^[A-Z2-7]+$/.test(cleanedSecret)) {
             throw new Error("Invalid base32 character in secret");
         }
-        secretBuffer = (0, base32ToBuffer_1.base32ToBuffer)(cleanedSecret);
+        secretBuffer = (0, stringToBuffer_1.base32ToBuffer)(cleanedSecret);
     }
     else if (encoding === "base64") {
         const cleanedSecret = secret.replace(/=+$/, "");
         if (!/^[A-Za-z0-9+/]+$/.test(cleanedSecret)) {
             throw new Error("Invalid base64 character in secret");
         }
-        secretBuffer = (0, base32ToBuffer_1.base64ToBuffer)(cleanedSecret);
+        secretBuffer = (0, stringToBuffer_1.base64ToBuffer)(cleanedSecret);
     }
     else {
         throw new Error("Unsupported encoding type");

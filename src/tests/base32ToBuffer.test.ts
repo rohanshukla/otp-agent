@@ -1,4 +1,4 @@
-import { base32ToBuffer, base64ToBuffer } from "../utils/base32ToBuffer";
+import { base32ToBuffer, base64ToBuffer } from "../utils/stringToBuffer";
 
 describe("Test utils functions", () => {
   describe("base32ToBuffer", () => {

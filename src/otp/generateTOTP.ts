@@ -1,5 +1,5 @@
 import { createHmac } from "crypto";
-import { base32ToBuffer, base64ToBuffer } from "../utils/base32ToBuffer";
+import { base32ToBuffer, base64ToBuffer } from "../utils/stringToBuffer";
 
 interface GenerateTOTPOptions {
   secret: string;
