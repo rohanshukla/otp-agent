@@ -39,17 +39,17 @@ export const generateTOTP = ({
     timeCounter >>= 8;
   }
 
-  // Clean and validate the secret
+  // Validate the secret
   let secretBuffer: Buffer;
+  const cleanedSecret = secret.replace(/\s+/g, ""); // Remove any whitespace from the secret
+
   if (encoding === "base32") {
-    const cleanedSecret = secret.replace(/=+$/, "").toUpperCase();
-    if (!/^[A-Z2-7]+$/.test(cleanedSecret)) {
+    if (!/^[A-Z2-7]+=*$/.test(cleanedSecret)) {
       throw new Error("Invalid base32 character in secret");
     }
     secretBuffer = base32ToBuffer(cleanedSecret);
   } else if (encoding === "base64") {
-    const cleanedSecret = secret.replace(/=+$/, "");
-    if (!/^[A-Za-z0-9+/]+$/.test(cleanedSecret)) {
+    if (!/^[A-Za-z0-9+/]+=*$/.test(cleanedSecret)) {
       throw new Error("Invalid base64 character in secret");
     }
     secretBuffer = base64ToBuffer(cleanedSecret);
