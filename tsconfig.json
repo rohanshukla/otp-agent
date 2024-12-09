@@ -14,16 +14,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true
-
-    // "moduleResolution": "node",
-    // "lib": ["dom", "dom.iterable", "esnext"],
-    // "allowJs": true,
-    // "allowSyntheticDefaultImports": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "resolveJsonModule": true,
-    // "isolatedModules": true,
-    // "noEmit": true,
   },
   "include": ["src"],
-  "exclude": ["src/tests"]
+  "exclude": ["**/*.test.ts", "**/*.spec.ts"]
 }
