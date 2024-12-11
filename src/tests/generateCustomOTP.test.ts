@@ -12,9 +12,9 @@ describe("generateCustomOTP", () => {
     expect(otp).toHaveLength(8);
   });
 
-  it("should limit the OTP length to a maximum of 10", () => {
-    const otp = generateCustomOTP(characters, { length: 12 });
-    expect(otp).toHaveLength(10);
+  it("should limit the OTP length to a maximum of 100", () => {
+    const otp = generateCustomOTP(characters, { length: 120 });
+    expect(otp).toHaveLength(100);
   });
 
   it("should return an empty string if no characters are provided", () => {

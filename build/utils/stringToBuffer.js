@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.base64ToBuffer = exports.base32ToBuffer = void 0;
+exports.base32ToBuffer = void 0;
+exports.base64ToBuffer = base64ToBuffer;
 const base32ToBuffer = (base32) => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
@@ -21,5 +22,4 @@ function base64ToBuffer(base64) {
     }
     return Buffer.from(base64, "base64");
 }
-exports.base64ToBuffer = base64ToBuffer;
 //# sourceMappingURL=stringToBuffer.js.map

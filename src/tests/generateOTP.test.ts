@@ -36,9 +36,9 @@ describe("generateOTP", () => {
     expect(otp).toMatch(/^[0-9a-zA-Z!@#?%&*]{6}$/);
   });
 
-  it("should limit OTP length to a maximum of 10 characters", () => {
-    const otp = generateOTP({ length: 12 });
-    expect(otp.length).toBe(10);
+  it("should limit OTP length to a maximum of 100 characters", () => {
+    const otp = generateOTP({ length: 120 });
+    expect(otp.length).toBe(100);
   });
 
   it("should default to numbers if no character types are selected", () => {

@@ -15,9 +15,9 @@ exports.generateCustomOTP = void 0;
  * @returns {string} - The generated OTP.
  */
 const generateCustomOTP = (characters, { length = 6 } = {}) => {
-    // Limit the length to a maximum of 10
-    if (length > 10)
-        length = 10;
+    // Limit the length to a maximum of 100
+    if (length > 100)
+        length = 100;
     // Ensure characters is a string and return an empty string if no characters are provided
     if (typeof characters !== "string" || characters.length === 0)
         return "";

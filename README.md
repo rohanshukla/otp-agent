@@ -1,8 +1,9 @@
-# OTP-Agent [![NPM Version](https://badge.fury.io/js/otp-agent.svg)](https://www.npmjs.com/package/otp-agent) ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Total Download](https://img.shields.io/npm/dt/otp-agent.svg)
+# OTP-Agent [![NPM Version](https://badge.fury.io/js/otp-agent.svg)](https://www.npmjs.com/package/otp-agent) ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Total Download](https://img.shields.io/npm/dt/otp-agent.svg) ![Minzipped Size](https://img.shields.io/bundlephobia/minzip/otp-agent.svg) ![Monthly Download](https://img.shields.io/npm/dm/otp-agent.svg)
 
 ## Table of Contents
 
 - [Installation](#installation)
+- [Running Tests](#running-tests)
 - [OTP (One-Time Password)](#otp-one-time-password)
 - [Custom OTP](#custom-otp)
 - [TOTP (Time-based One-Time Password)](#totp-time-based-one-time-password)
@@ -20,9 +21,17 @@ npm install otp-agent
 
 For more information on installing npm packages, refer to the [npm documentation](https://docs.npmjs.com/getting-started/installing-npm-packages-locally).
 
+## Running Tests
+
+To run tests for the `otp-agent` module, use the following command:
+
+```bash
+npm run test
+```
+
 ## OTP (One-Time Password)
 
-An OTP is a password that is valid for only one login session or transaction. This module allows you to generate OTPs using numbers, alphabets, and special characters. The default length is 6 characters, but it can be customized up to 10 characters.
+An OTP is a password that is valid for only one login session or transaction. This module allows you to generate OTPs using numbers, alphabets, and special characters. The default length is 6 characters, but it can be customized up to 100 characters.
 
 ### Example & Usage (with [import](https://nodejs.org/api/esm.html) statement)
 
@@ -56,9 +65,9 @@ console.log(otp); // NZ9O#akS
 ### Example & Usage (with [require](https://nodejs.org/api/modules.html) statement)
 
 ```js
-const { generateOTP, generateCustomOTP } = require("otp-agent");
+const { generateOTP } = require("otp-agent");
 
-// Default OTP length is 6 and max is 10
+// Default OTP length is 6 and max is 100
 const otp = generateOTP();
 console.log(otp); // 543921
 ```
@@ -125,4 +134,5 @@ console.log(hotp); // 654321
 
 ## License
 
+````markdown
 © Licensed under the [MIT License](./LICENSE).

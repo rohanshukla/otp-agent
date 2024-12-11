@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateHOTP = void 0;
+exports.generateHOTP = generateHOTP;
 const crypto_1 = require("crypto");
 const stringToBuffer_1 = require("../utils/stringToBuffer");
 /**
@@ -49,5 +49,4 @@ function generateHOTP({ secret, counter, digits = 6, encoding = "base32", algori
     // Return the code as a zero-padded string
     return code.toString().padStart(digits, "0");
 }
-exports.generateHOTP = generateHOTP;
 //# sourceMappingURL=generateHOTP.js.map

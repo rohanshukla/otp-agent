@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="node" />
 interface Base32ToBuffer {
     (base32: string): Buffer;
 }

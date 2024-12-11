@@ -34,8 +34,8 @@ const generateOTP = ({ length = 6, numbers = false, alphabets = false, upperCase
     // Default to numbers if no character types are selected
     if (!characterPool)
         characterPool = NUMBERS;
-    // Limit OTP length to a maximum of 10 characters
-    const otpLength = Math.min(length, 10);
+    // Limit OTP length to a maximum of 100 characters
+    const otpLength = Math.min(length, 100);
     let otp = "";
     for (let i = 0; i < otpLength; i++) {
         const randomIndex = Math.floor(Math.random() * characterPool.length);
