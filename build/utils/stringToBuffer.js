@@ -6,16 +6,23 @@ exports.hexToBuffer = hexToBuffer;
 exports.asciiToBuffer = asciiToBuffer;
 const base32ToBuffer = (base32) => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+    const paddingChar = "=";
+    const cleanedBase32 = base32.replace(new RegExp(`[^${alphabet}${paddingChar}]`, "g"), "");
+    const paddingLength = (8 - (cleanedBase32.length % 8)) % 8;
+    const paddedBase32 = cleanedBase32 + paddingChar.repeat(paddingLength);
     let bits = "";
-    for (const char of base32.toUpperCase()) {
-        const val = alphabet.indexOf(char);
-        if (val === -1) {
-            throw new Error("Invalid base32 character");
+    for (const char of paddedBase32) {
+        if (char !== paddingChar) {
+            const index = alphabet.indexOf(char);
+            bits += index.toString(2).padStart(5, "0");
         }
-        bits += val.toString(2).padStart(5, "0");
     }
-    const bytes = bits.match(/.{1,8}/g)?.map((byte) => parseInt(byte, 2) & 0xff) || [];
-    return Buffer.from(bytes);
+    const bufferLength = Math.floor(bits.length / 8);
+    const buffer = Buffer.alloc(bufferLength);
+    for (let i = 0; i < bufferLength; i++) {
+        buffer[i] = parseInt(bits.slice(i * 8, i * 8 + 8), 2);
+    }
+    return buffer;
 };
 exports.base32ToBuffer = base32ToBuffer;
 function base64ToBuffer(base64) {

@@ -7,16 +7,30 @@ import {
 
 describe("stringToBuffers", () => {
   describe("base32ToBuffer", () => {
-    it("should throw an error for an invalid base32 character", () => {
-      const invalidBase32 = "MZXW6YTBOI=====$";
-      expect(() => base32ToBuffer(invalidBase32)).toThrow(
-        "Invalid base32 character"
-      );
+    it("should convert base32 string to buffer", () => {
+      const base32 = "JBSWY3DPEBLW64TMMQ======";
+      const expectedBuffer = Buffer.from("Hello World", "utf-8");
+      const result = base32ToBuffer(base32);
+      expect(result).toEqual(expectedBuffer);
     });
 
-    it("should handle an empty string", () => {
+    it("should handle base32 strings with no padding", () => {
+      const base32 = "JBSWY3DPEBLW64TMMQ";
+      const expectedBuffer = Buffer.from("Hello World", "utf-8");
+      const result = base32ToBuffer(base32);
+      expect(result).toEqual(expectedBuffer);
+    });
+
+    it("should handle empty base32 string", () => {
       const base32 = "";
-      const expectedBuffer = Buffer.from([]);
+      const expectedBuffer = Buffer.alloc(0);
+      const result = base32ToBuffer(base32);
+      expect(result).toEqual(expectedBuffer);
+    });
+
+    it("should ignore invalid characters in base32 string", () => {
+      const base32 = "JBSWY3DPEBLW64TMMQ!@#$%^&*()";
+      const expectedBuffer = Buffer.from("Hello World", "utf-8");
       const result = base32ToBuffer(base32);
       expect(result).toEqual(expectedBuffer);
     });

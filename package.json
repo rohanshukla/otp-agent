@@ -1,6 +1,6 @@
 {
   "name": "otp-agent",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "A JavaScript package for creating one-time passwords (OTPs), including custom OTPs, TOTP, and HOTP.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
