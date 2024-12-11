@@ -1,5 +1,10 @@
 import { createHmac } from "crypto";
-import { base32ToBuffer, base64ToBuffer } from "../utils/stringToBuffer";
+import {
+  base32ToBuffer,
+  base64ToBuffer,
+  hexToBuffer,
+  asciiToBuffer,
+} from "../utils/stringToBuffer";
 
 /**
  * Generates a HMAC-based One-Time Password (HOTP).
@@ -15,8 +20,8 @@ interface HOTPOptions {
   secret: string;
   counter: number;
   digits?: number;
-  encoding?: "base32" | "base64";
-  algorithm?: "sha1" | "sha256" | "sha512";
+  encoding?: "base32" | "base64" | "hex" | "ascii";
+  algorithm?: "sha1" | "sha256" | "sha384" | "sha512";
 }
 
 /**
@@ -26,7 +31,7 @@ interface HOTPOptions {
  * @param {string} options.secret - The shared secret key used for generating the HOTP.
  * @param {number} options.counter - The counter value, which is typically incremented with each HOTP generation.
  * @param {number} [options.digits=6] - The number of digits in the generated HOTP. Defaults to 6.
- * @param {string} [options.encoding="base32"] - The encoding of the secret key. Can be "base32" or "base64". Defaults to "base32".
+ * @param {string} [options.encoding="base32"] - The encoding of the secret key. Can be "base32", "base64", "hex", or "ascii". Defaults to "base32".
  * @param {string} [options.algorithm="sha1"] - The hashing algorithm to use. Defaults to "sha1".
  * @returns {string} The generated HOTP as a zero-padded string.
  * @throws {Error} If the secret contains invalid characters for the specified encoding.
@@ -39,23 +44,34 @@ export function generateHOTP({
   encoding = "base32",
   algorithm = "sha1",
 }: HOTPOptions): string {
+  // Validate the secret and convert to buffer
   let decodedSecret: Buffer;
-
-  // Validate the secret
   const cleanedSecret = secret.replace(/\s+/g, ""); // Remove any whitespace from the secret
 
-  if (encoding === "base32") {
-    if (!/^[A-Z2-7]+=*$/.test(cleanedSecret)) {
-      throw new Error("Invalid base32 character in secret");
-    }
-    decodedSecret = base32ToBuffer(cleanedSecret);
-  } else if (encoding === "base64") {
-    if (!/^[A-Za-z0-9+/]+=*$/.test(cleanedSecret)) {
-      throw new Error("Invalid base64 character in secret");
-    }
-    decodedSecret = base64ToBuffer(cleanedSecret);
-  } else {
-    throw new Error("Unsupported encoding type");
+  switch (encoding) {
+    case "base32":
+      if (!/^[A-Z2-7]+=*$/.test(cleanedSecret)) {
+        throw new Error("Invalid base32 character in secret");
+      }
+      decodedSecret = base32ToBuffer(cleanedSecret);
+      break;
+    case "base64":
+      if (!/^[A-Za-z0-9+/]+=*$/.test(cleanedSecret)) {
+        throw new Error("Invalid base64 character in secret");
+      }
+      decodedSecret = base64ToBuffer(cleanedSecret);
+      break;
+    case "hex":
+      if (!/^[A-Fa-f0-9]+$/.test(cleanedSecret)) {
+        throw new Error("Invalid hex character in secret");
+      }
+      decodedSecret = hexToBuffer(cleanedSecret);
+      break;
+    case "ascii":
+      decodedSecret = asciiToBuffer(cleanedSecret);
+      break;
+    default:
+      throw new Error("Unsupported encoding type");
   }
 
   // Create an 8-byte buffer from the counter value

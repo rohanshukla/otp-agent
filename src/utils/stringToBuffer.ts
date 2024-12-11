@@ -2,11 +2,7 @@ interface Base32ToBuffer {
   (base32: string): Buffer;
 }
 
-interface Base64ToBuffer {
-  (base64: string): Buffer;
-}
-
-export const base32ToBuffer: Base32ToBuffer = (base32: string) => {
+export const base32ToBuffer: Base32ToBuffer = (base32: string): Buffer => {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
   let bits = "";
   for (const char of base32.toUpperCase()) {
@@ -26,6 +22,16 @@ export function base64ToBuffer(base64: string): Buffer {
   if (!/^[A-Za-z0-9+/]*={0,2}$/.test(base64)) {
     throw new Error("Invalid base64 string");
   }
-
   return Buffer.from(base64, "base64");
+}
+
+export function hexToBuffer(hex: string): Buffer {
+  if (!/^[0-9A-Fa-f]*$/.test(hex)) {
+    throw new Error("Invalid hex string");
+  }
+  return Buffer.from(hex, "hex");
+}
+
+export function asciiToBuffer(ascii: string): Buffer {
+  return Buffer.from(ascii, "ascii");
 }

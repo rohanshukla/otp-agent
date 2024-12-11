@@ -10,30 +10,40 @@ const stringToBuffer_1 = require("../utils/stringToBuffer");
  * @param {string} options.secret - The shared secret key used for generating the HOTP.
  * @param {number} options.counter - The counter value, which is typically incremented with each HOTP generation.
  * @param {number} [options.digits=6] - The number of digits in the generated HOTP. Defaults to 6.
- * @param {string} [options.encoding="base32"] - The encoding of the secret key. Can be "base32" or "base64". Defaults to "base32".
+ * @param {string} [options.encoding="base32"] - The encoding of the secret key. Can be "base32", "base64", "hex", or "ascii". Defaults to "base32".
  * @param {string} [options.algorithm="sha1"] - The hashing algorithm to use. Defaults to "sha1".
  * @returns {string} The generated HOTP as a zero-padded string.
  * @throws {Error} If the secret contains invalid characters for the specified encoding.
  * @throws {Error} If an unsupported encoding type is specified.
  */
 function generateHOTP({ secret, counter, digits = 6, encoding = "base32", algorithm = "sha1", }) {
+    // Validate the secret and convert to buffer
     let decodedSecret;
-    // Validate the secret
     const cleanedSecret = secret.replace(/\s+/g, ""); // Remove any whitespace from the secret
-    if (encoding === "base32") {
-        if (!/^[A-Z2-7]+=*$/.test(cleanedSecret)) {
-            throw new Error("Invalid base32 character in secret");
-        }
-        decodedSecret = (0, stringToBuffer_1.base32ToBuffer)(cleanedSecret);
-    }
-    else if (encoding === "base64") {
-        if (!/^[A-Za-z0-9+/]+=*$/.test(cleanedSecret)) {
-            throw new Error("Invalid base64 character in secret");
-        }
-        decodedSecret = (0, stringToBuffer_1.base64ToBuffer)(cleanedSecret);
-    }
-    else {
-        throw new Error("Unsupported encoding type");
+    switch (encoding) {
+        case "base32":
+            if (!/^[A-Z2-7]+=*$/.test(cleanedSecret)) {
+                throw new Error("Invalid base32 character in secret");
+            }
+            decodedSecret = (0, stringToBuffer_1.base32ToBuffer)(cleanedSecret);
+            break;
+        case "base64":
+            if (!/^[A-Za-z0-9+/]+=*$/.test(cleanedSecret)) {
+                throw new Error("Invalid base64 character in secret");
+            }
+            decodedSecret = (0, stringToBuffer_1.base64ToBuffer)(cleanedSecret);
+            break;
+        case "hex":
+            if (!/^[A-Fa-f0-9]+$/.test(cleanedSecret)) {
+                throw new Error("Invalid hex character in secret");
+            }
+            decodedSecret = (0, stringToBuffer_1.hexToBuffer)(cleanedSecret);
+            break;
+        case "ascii":
+            decodedSecret = (0, stringToBuffer_1.asciiToBuffer)(cleanedSecret);
+            break;
+        default:
+            throw new Error("Unsupported encoding type");
     }
     // Create an 8-byte buffer from the counter value
     const buffer = Buffer.alloc(8);

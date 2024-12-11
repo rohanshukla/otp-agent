@@ -104,7 +104,7 @@ console.log(totp); // 123456
 - `secret`: A shared secret key used to generate the TOTP.
 - `timeStep` (optional): The time step in seconds. Default is 30.
 - `digits` (optional): The number of digits in the OTP. Default is 6.
-- `algorithm` (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-512'). Default is 'SHA-1'.
+- `algorithm` (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
 - `encoding` (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
 
 ## HOTP (HMAC-based One-Time Password)
@@ -123,16 +123,15 @@ console.log(hotp); // 654321
 - `secret`: A shared secret key used to generate the HOTP.
 - `counter`: A counter value that increments with each OTP generation.
 - `digits` (optional): The number of digits in the OTP. Default is 6.
-- `algorithm` (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-512'). Default is 'SHA-1'.
+- `algorithm` (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
 - `encoding` (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
 
 ## Author
 
 **Rohan Shukla**  
-[![GitHub](https://img.shields.io/badge/GitHub-rohanshukla-181717?logo=github&style=for-the-badge)](https://github.com/rohanshukla) 
+[![GitHub](https://img.shields.io/badge/GitHub-rohanshukla-181717?logo=github&style=for-the-badge)](https://github.com/rohanshukla)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-shuklarohan-0077B5?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/shuklarohan)
 
 ## License
 
-````markdown
 © Licensed under the [MIT License](./LICENSE).

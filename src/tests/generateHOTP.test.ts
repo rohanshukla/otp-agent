@@ -64,13 +64,53 @@ describe("generateHOTP", () => {
     }).toThrow("Invalid base64 character in secret");
   });
 
+  it("should throw an error for invalid hex secret", () => {
+    expect(() => {
+      generateHOTP({
+        secret: "INVALIDHEX",
+        counter: 1,
+        encoding: "hex",
+      });
+    }).toThrow("Invalid hex character in secret");
+  });
+
+  it("should generate a valid HOTP with ascii encoding", () => {
+    const hotp = generateHOTP({
+      secret: "48656c6c6f21",
+      counter: 1,
+      encoding: "hex",
+    });
+    expect(hotp).toBe("945916");
+  });
+
+  it("should generate a valid HOTP with ascii encoding", () => {
+    const hotp = generateHOTP({
+      secret: "12345678901234567890",
+      counter: 1,
+      encoding: "ascii",
+    });
+    expect(hotp).toBe("287082");
+  });
+
   it("should throw an error for unsupported encoding type", () => {
     expect(() => {
       generateHOTP({
         secret: "JBSWY3DPEHPK3PXP",
         counter: 1,
-        encoding: "hex" as any,
+        encoding: "utf8" as any,
       });
     }).toThrow("Unsupported encoding type");
+  });
+
+  it("should generate a valid HOTP with different counter values", () => {
+    const hotp1 = generateHOTP({
+      secret: "JBSWY3DPEHPK3PXP",
+      counter: 1,
+    });
+    const hotp2 = generateHOTP({
+      secret: "JBSWY3DPEHPK3PXP",
+      counter: 2,
+    });
+    expect(hotp1).not.toBe(hotp2);
   });
 });

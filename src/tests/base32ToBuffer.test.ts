@@ -1,6 +1,11 @@
-import { base32ToBuffer, base64ToBuffer } from "../utils/stringToBuffer";
+import {
+  base32ToBuffer,
+  base64ToBuffer,
+  hexToBuffer,
+  asciiToBuffer,
+} from "../utils/stringToBuffer";
 
-describe("Test utils functions", () => {
+describe("stringToBuffers", () => {
   describe("base32ToBuffer", () => {
     it("should throw an error for an invalid base32 character", () => {
       const invalidBase32 = "MZXW6YTBOI=====$";
@@ -34,7 +39,30 @@ describe("Test utils functions", () => {
 
     it("should throw an error for an invalid base64 string", () => {
       const invalidBase64 = "Zm9vYmFy$";
-      expect(() => base64ToBuffer(invalidBase64)).toThrow("Invalid base64 string");
+      expect(() => base64ToBuffer(invalidBase64)).toThrow(
+        "Invalid base64 string"
+      );
+    });
+  });
+
+  describe("hexToBuffer", () => {
+    it("should convert a valid hex string to a buffer", () => {
+      const hex = "48656c6c6f";
+      const buffer = hexToBuffer(hex);
+      expect(buffer.toString("utf-8")).toBe("Hello");
+    });
+
+    it("should throw an error for an invalid hex string", () => {
+      const invalidHex = "48656c6c6g";
+      expect(() => hexToBuffer(invalidHex)).toThrow("Invalid hex string");
+    });
+  });
+
+  describe("asciiToBuffer", () => {
+    it("should convert an ASCII string to a buffer", () => {
+      const ascii = "Hello";
+      const buffer = asciiToBuffer(ascii);
+      expect(buffer.toString("utf-8")).toBe("Hello");
     });
   });
 });

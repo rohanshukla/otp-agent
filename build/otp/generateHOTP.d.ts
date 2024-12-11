@@ -12,8 +12,8 @@ interface HOTPOptions {
     secret: string;
     counter: number;
     digits?: number;
-    encoding?: "base32" | "base64";
-    algorithm?: "sha1" | "sha256" | "sha512";
+    encoding?: "base32" | "base64" | "hex" | "ascii";
+    algorithm?: "sha1" | "sha256" | "sha384" | "sha512";
 }
 /**
  * Generates a HOTP (HMAC-based One-Time Password) based on the provided options.
@@ -22,7 +22,7 @@ interface HOTPOptions {
  * @param {string} options.secret - The shared secret key used for generating the HOTP.
  * @param {number} options.counter - The counter value, which is typically incremented with each HOTP generation.
  * @param {number} [options.digits=6] - The number of digits in the generated HOTP. Defaults to 6.
- * @param {string} [options.encoding="base32"] - The encoding of the secret key. Can be "base32" or "base64". Defaults to "base32".
+ * @param {string} [options.encoding="base32"] - The encoding of the secret key. Can be "base32", "base64", "hex", or "ascii". Defaults to "base32".
  * @param {string} [options.algorithm="sha1"] - The hashing algorithm to use. Defaults to "sha1".
  * @returns {string} The generated HOTP as a zero-padded string.
  * @throws {Error} If the secret contains invalid characters for the specified encoding.

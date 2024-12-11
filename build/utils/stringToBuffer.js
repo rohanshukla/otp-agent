@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.base32ToBuffer = void 0;
 exports.base64ToBuffer = base64ToBuffer;
+exports.hexToBuffer = hexToBuffer;
+exports.asciiToBuffer = asciiToBuffer;
 const base32ToBuffer = (base32) => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
@@ -21,5 +23,14 @@ function base64ToBuffer(base64) {
         throw new Error("Invalid base64 string");
     }
     return Buffer.from(base64, "base64");
+}
+function hexToBuffer(hex) {
+    if (!/^[0-9A-Fa-f]*$/.test(hex)) {
+        throw new Error("Invalid hex string");
+    }
+    return Buffer.from(hex, "hex");
+}
+function asciiToBuffer(ascii) {
+    return Buffer.from(ascii, "ascii");
 }
 //# sourceMappingURL=stringToBuffer.js.map

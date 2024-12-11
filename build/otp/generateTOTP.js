@@ -8,7 +8,7 @@ const stringToBuffer_1 = require("../utils/stringToBuffer");
  *
  * @param {Object} options - The options for generating the TOTP.
  * @param {string} options.secret - The shared secret key used for generating the TOTP.
- * @param {string} [options.encoding='base32'] - The encoding of the secret ('base32' or 'base64').
+ * @param {string} [options.encoding='base32'] - The encoding of the secret ('base32', 'base64', 'hex', or 'ascii').
  * @param {number} [options.timeStep=30] - The time step in seconds (default is 30 seconds).
  * @param {number} [options.digits=6] - The number of digits in the generated TOTP (default is 6 digits).
  * @param {string} [options.algorithm='sha1'] - The HMAC hashing algorithm to use (default is 'sha1').
@@ -25,23 +25,33 @@ const generateTOTP = ({ secret, encoding = "base32", timeStep = 30, digits = 6, 
         timeBuffer[i] = timeCounter & 0xff;
         timeCounter >>= 8;
     }
-    // Validate the secret
+    // Validate the secret and convert to buffer
     let secretBuffer;
     const cleanedSecret = secret.replace(/\s+/g, ""); // Remove any whitespace from the secret
-    if (encoding === "base32") {
-        if (!/^[A-Z2-7]+=*$/.test(cleanedSecret)) {
-            throw new Error("Invalid base32 character in secret");
-        }
-        secretBuffer = (0, stringToBuffer_1.base32ToBuffer)(cleanedSecret);
-    }
-    else if (encoding === "base64") {
-        if (!/^[A-Za-z0-9+/]+=*$/.test(cleanedSecret)) {
-            throw new Error("Invalid base64 character in secret");
-        }
-        secretBuffer = (0, stringToBuffer_1.base64ToBuffer)(cleanedSecret);
-    }
-    else {
-        throw new Error("Unsupported encoding type");
+    switch (encoding) {
+        case "base32":
+            if (!/^[A-Z2-7]+=*$/.test(cleanedSecret)) {
+                throw new Error("Invalid base32 character in secret");
+            }
+            secretBuffer = (0, stringToBuffer_1.base32ToBuffer)(cleanedSecret);
+            break;
+        case "base64":
+            if (!/^[A-Za-z0-9+/]+=*$/.test(cleanedSecret)) {
+                throw new Error("Invalid base64 character in secret");
+            }
+            secretBuffer = (0, stringToBuffer_1.base64ToBuffer)(cleanedSecret);
+            break;
+        case "hex":
+            if (!/^[A-Fa-f0-9]+$/.test(cleanedSecret)) {
+                throw new Error("Invalid hex character in secret");
+            }
+            secretBuffer = (0, stringToBuffer_1.hexToBuffer)(cleanedSecret);
+            break;
+        case "ascii":
+            secretBuffer = (0, stringToBuffer_1.asciiToBuffer)(cleanedSecret);
+            break;
+        default:
+            throw new Error("Unsupported encoding type");
     }
     // Create HMAC using the secret and time buffer
     const hmac = (0, crypto_1.createHmac)(algorithm, secretBuffer);
