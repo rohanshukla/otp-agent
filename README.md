@@ -1,17 +1,30 @@
 # OTP-Agent [![NPM Version](https://badge.fury.io/js/otp-agent.svg)](https://www.npmjs.com/package/otp-agent) ![Total Download](https://img.shields.io/npm/dt/otp-agent.svg) ![Minzipped Size](https://img.shields.io/bundlephobia/minzip/otp-agent.svg) ![Monthly Download](https://img.shields.io/npm/dm/otp-agent.svg)
 
-## Table of Contents
+## 📖 Overview
 
-- [Installation](#installation)
-- [Running Tests](#running-tests)
-- [OTP (One-Time Password)](#otp-one-time-password)
-- [Custom OTP](#custom-otp)
-- [TOTP (Time-based One-Time Password)](#totp-time-based-one-time-password)
-- [HOTP (HMAC-based One-Time Password)](#hotp-hmac-based-one-time-password)
-- [Author](#author)
-- [License](#license)
+`otp-agent` is a JavaScript package designed for generating one-time passwords (OTPs). It supports various types of OTPs, including custom OTPs, Time-based One-Time Passwords (TOTP), and HMAC-based One-Time Passwords (HOTP). This package is useful for implementing secure authentication mechanisms in your applications.
 
-## Installation
+### 💡 Use Cases
+
+- **🔒 Authentication Systems**: Enhance security by using OTPs for two-factor authentication (2FA) or multi-factor authentication (MFA).
+- **🔐 Transaction Verification**: Securely verify transactions by requiring an OTP.
+- **🔏 Access Control**: Implement OTPs for temporary access to sensitive information or systems.
+- **✨ Custom OTP Requirements**: Generate OTPs with specific character sets for specialized use cases.
+- **⏳ TOTP**: Generate time-based OTPs that change after a specified period, ideal for time-sensitive authentication.
+- **🔐 HOTP**: Generate counter-based OTPs that change with each authentication attempt, suitable for systems requiring persistent OTPs until used.
+
+## 📚 Table of Contents
+
+- [🛠️ Installation](#installation)
+- [🧪 Running Tests](#running-tests)
+- [🔑 OTP (One-Time Password)](#otp-one-time-password)
+- [✨ Custom OTP](#custom-otp)
+- [⏳ TOTP (Time-based One-Time Password)](#totp-time-based-one-time-password)
+- [🔐 HOTP (HMAC-based One-Time Password)](#hotp-hmac-based-one-time-password)
+- [👤 Author](#author)
+- [📄 License](#license)
+
+## 🛠️ Installation
 
 To install the `otp-agent` module, ensure you have [Node.js](https://nodejs.org/en/) installed. You can then install the module via the [npm registry](https://www.npmjs.com/). Use the following command to add `otp-agent` to your project:
 
@@ -21,7 +34,7 @@ npm install otp-agent
 
 For more information on installing npm packages, refer to the [npm documentation](https://docs.npmjs.com/getting-started/installing-npm-packages-locally).
 
-## Running Tests
+## 🧪 Running Tests
 
 To run tests for the `otp-agent` module, use the following command:
 
@@ -29,11 +42,11 @@ To run tests for the `otp-agent` module, use the following command:
 npm run test
 ```
 
-## OTP (One-Time Password)
+## 🔑 OTP (One-Time Password)
 
 An OTP is a password that is valid for only one login session or transaction. This module allows you to generate OTPs using numbers, alphabets, and special characters. The default length is 6 characters, but it can be customized up to 100 characters.
 
-### Example & Usage (with [import](https://nodejs.org/api/esm.html) statement)
+### 📄 Example & Usage (with [import](https://nodejs.org/api/esm.html) statement)
 
 ```js
 import { generateOTP } from "otp-agent";
@@ -62,7 +75,7 @@ console.log(otp); // NZ9O#akS
 - `upperCaseAlphabets` (optional): Include uppercase alphabets in the OTP. Default is false.
 - `specialChars` (optional): Include special characters in the OTP. Default is false.
 
-### Example & Usage (with [require](https://nodejs.org/api/modules.html) statement)
+### 📄 Example & Usage (with [require](https://nodejs.org/api/modules.html) statement)
 
 ```js
 const { generateOTP } = require("otp-agent");
@@ -72,7 +85,7 @@ const otp = generateOTP();
 console.log(otp); // 543921
 ```
 
-## Custom OTP
+## ✨ Custom OTP
 
 A Custom OTP is generated using a specified set of characters. This allows for more control over the characters included in the OTP, making it suitable for specific use cases where certain characters are required.
 
@@ -88,7 +101,7 @@ console.log(customOTP); // 1@c3c
 - `characters`: A string containing the set of characters to use for the OTP.
 - `length` (optional): The length of the OTP. Default is 6.
 
-## TOTP (Time-based One-Time Password)
+## ⏳ TOTP (Time-based One-Time Password)
 
 TOTP is an extension of OTP that uses the current time as a source of uniqueness. It generates a time-based OTP that changes after a certain period, typically 30 seconds. This is commonly used in two-factor authentication systems.
 
@@ -107,7 +120,7 @@ console.log(totp); // 123456
 - `algorithm` (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
 - `encoding` (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
 
-## HOTP (HMAC-based One-Time Password)
+## 🔐 HOTP (HMAC-based One-Time Password)
 
 HOTP is an OTP algorithm based on HMAC (Hash-based Message Authentication Code). It generates a counter-based OTP that changes with each authentication attempt. This is useful for systems where the OTP needs to remain valid until it is used.
 
@@ -126,12 +139,12 @@ console.log(hotp); // 654321
 - `algorithm` (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
 - `encoding` (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
 
-## Author
+## 👨‍💻 Author
 
 **Rohan Shukla**  
-[![GitHub](https://img.shields.io/badge/GitHub-rohanshukla-181717?logo=github&style=for-the-badge)](https://github.com/rohanshukla)
+[![GitHub](https://img.shields.io/badge/GitHub-rohanshukla-181717?logo=github&style=for-the-badge)](https://github.com/rohanshukla)  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-shuklarohan-0077B5?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/shuklarohan)
 
-## License
+## 📄 License
 
 © Licensed under the [MIT License](./LICENSE).
