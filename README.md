@@ -3,7 +3,7 @@
 ## 📚 Table of Contents
 
 - [📖 Overview](#-overview)
-- [🛠️ Installation](#-installation)
+- [🛠️ Installation](#️-installation)
 - [🧪 Running Tests](#-running-tests)
 - [🔑 OTP (One-Time Password)](#-otp-one-time-password)
 - [✨ Custom OTP](#-custom-otp)
