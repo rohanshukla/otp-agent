@@ -1,5 +1,17 @@
 # OTP-Agent [![NPM Version](https://badge.fury.io/js/otp-agent.svg)](https://www.npmjs.com/package/otp-agent) ![Total Download](https://img.shields.io/npm/dt/otp-agent.svg) ![Minzipped Size](https://img.shields.io/bundlephobia/minzip/otp-agent.svg) ![Monthly Download](https://img.shields.io/npm/dm/otp-agent.svg)
 
+## 📚 Table of Contents
+
+- [📖 Overview](#-overview)
+- [🛠️ Installation](#-installation)
+- [🧪 Running Tests](#-running-tests)
+- [🔑 OTP (One-Time Password)](#-otp-one-time-password)
+- [✨ Custom OTP](#-custom-otp)
+- [⏳ TOTP (Time-based One-Time Password)](#-totp-time-based-one-time-password)
+- [🔐 HOTP (HMAC-based One-Time Password)](#-hotp-hmac-based-one-time-password)
+- [👨‍💻 Author](#-author)
+- [📄 License](#-license)
+
 ## 📖 Overview
 
 `otp-agent` is a JavaScript package designed for generating one-time passwords (OTPs). It supports various types of OTPs, including custom OTPs, Time-based One-Time Passwords (TOTP), and HMAC-based One-Time Passwords (HOTP). This package is useful for implementing secure authentication mechanisms in your applications.
@@ -12,17 +24,6 @@
 - **✨ Custom OTP Requirements**: Generate OTPs with specific character sets for specialized use cases.
 - **⏳ TOTP**: Generate time-based OTPs that change after a specified period, ideal for time-sensitive authentication.
 - **🔐 HOTP**: Generate counter-based OTPs that change with each authentication attempt, suitable for systems requiring persistent OTPs until used.
-
-## 📚 Table of Contents
-
-- [🛠️ Installation](#installation)
-- [🧪 Running Tests](#running-tests)
-- [🔑 OTP (One-Time Password)](#otp-one-time-password)
-- [✨ Custom OTP](#custom-otp)
-- [⏳ TOTP (Time-based One-Time Password)](#totp-time-based-one-time-password)
-- [🔐 HOTP (HMAC-based One-Time Password)](#hotp-hmac-based-one-time-password)
-- [👤 Author](#author)
-- [📄 License](#license)
 
 ## 🛠️ Installation
 
