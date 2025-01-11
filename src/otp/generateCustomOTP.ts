@@ -5,21 +5,22 @@
  */
 
 interface IPayload {
+  characters: string;
   length?: number;
 }
 
 /**
  * Generate a custom OTP of the specified length using the provided characters.
  *
- * @param {string} characters - The custom characters for OTP generation.
  * @param {IPayload} options - Options for OTP generation.
+ * @param {string} options.characters - The custom characters for OTP generation.
  * @param {number} [options.length=6] - The length of the OTP.
  * @returns {string} - The generated OTP.
  */
-export const generateCustomOTP = (
-  characters: string,
-  { length = 6 }: IPayload = {}
-): string => {
+export const generateCustomOTP = ({
+  characters,
+  length = 6,
+}: IPayload): string => {
   // Limit the length to a maximum of 100
   if (length > 100) length = 100;
 

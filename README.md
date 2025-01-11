@@ -70,11 +70,11 @@ console.log(otp); // NZ9O#akS
 
 ### Arguments
 
-- `length` (optional): The length of the OTP. Default is 6.
-- `numbers` (optional): Include numbers in the OTP. Default is true.
-- `alphabets` (optional): Include alphabets in the OTP. Default is false.
-- `upperCaseAlphabets` (optional): Include uppercase alphabets in the OTP. Default is false.
-- `specialChars` (optional): Include special characters in the OTP. Default is false.
+- **`length`** (optional): The length of the OTP. Default is 6.
+- **`numbers`** (optional): Include numbers in the OTP. Default is true.
+- **`alphabets`** (optional): Include alphabets in the OTP. Default is false.
+- **`upperCaseAlphabets`** (optional): Include uppercase alphabets in the OTP. Default is false.
+- **`specialChars`** (optional): Include special characters in the OTP. Default is false.
 
 ### 📄 Example & Usage (with [require](https://nodejs.org/api/modules.html) statement)
 
@@ -93,14 +93,14 @@ A Custom OTP is generated using a specified set of characters. This allows for m
 ```js
 import { generateCustomOTP } from "otp-agent";
 
-const customOTP = generateCustomOTP("Abc@123", { length: 5 });
-console.log(customOTP); // 1@c3c
+const customOTP = generateCustomOTP({ characters: "Abc@#$123", length: 5 });
+console.log(`Generated OTP: ${customOTP}`); // 1@c3#
 ```
 
 ### Arguments
 
-- `characters`: A string containing the set of characters to use for the OTP.
-- `length` (optional): The length of the OTP. Default is 6.
+- **`characters`**: A string containing the set of characters to use for the OTP.
+- **`length`** (optional): The length of the OTP. Default is 6.
 
 ## ⏳ TOTP (Time-based One-Time Password)
 
@@ -109,17 +109,18 @@ TOTP is an extension of OTP that uses the current time as a source of uniqueness
 ```js
 import { generateTOTP } from "otp-agent";
 
+// Define your secret key
 const totp = generateTOTP({ secret: "JBSWY3DPEHPK3PXP" });
 console.log(totp); // 123456
 ```
 
 ### Arguments
 
-- `secret`: A shared secret key used to generate the TOTP.
-- `timeStep` (optional): The time step in seconds. Default is 30.
-- `digits` (optional): The number of digits in the OTP. Default is 6.
-- `algorithm` (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
-- `encoding` (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
+- **`secret`**: A shared secret key used to generate the TOTP.
+- **`timeStep`** (optional): The time step in seconds. Default is 30.
+- **`digits`** (optional): The number of digits in the OTP. Default is 6.
+- **`algorithm`** (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
+- **`encoding`** (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
 
 ## 🔐 HOTP (HMAC-based One-Time Password)
 
@@ -128,17 +129,18 @@ HOTP is an OTP algorithm based on HMAC (Hash-based Message Authentication Code).
 ```js
 import { generateHOTP } from "otp-agent";
 
+// Define your secret key and counter
 const hotp = generateHOTP({ secret: "JBSWY3DPEHPK3PXP", counter: 1 });
 console.log(hotp); // 654321
 ```
 
 ### Arguments
 
-- `secret`: A shared secret key used to generate the HOTP.
-- `counter`: A counter value that increments with each OTP generation.
-- `digits` (optional): The number of digits in the OTP. Default is 6.
-- `algorithm` (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
-- `encoding` (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
+- **`secret`**: A shared secret key used to generate the HOTP.
+- **`counter`**: A counter value that increments with each OTP generation.
+- **`digits`** (optional): The number of digits in the OTP. Default is 6.
+- **`algorithm`** (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
+- **`encoding`** (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
 
 ## 👨‍💻 Author
 
