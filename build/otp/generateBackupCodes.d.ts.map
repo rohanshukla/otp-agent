@@ -1,1 +1,0 @@
-{"version":3,"file":"generateBackupCodes.d.ts","sourceRoot":"","sources":["../../src/otp/generateBackupCodes.ts"],"names":[],"mappings":"AAGA,UAAU,wBAAwB;IAChC,aAAa,EAAE,MAAM,CAAC;IACtB,UAAU,EAAE,MAAM,CAAC;IACnB,QAAQ,CAAC,EAAE,KAAK,GAAG,QAAQ,GAAG,QAAQ,CAAC;CACxC;AA0BD,wBAAgB,mBAAmB,CAAC,EAClC,aAAa,EACb,UAAU,EACV,QAAgB,GACjB,EAAE,wBAAwB,GAAG,MAAM,EAAE,CAMrC"}
