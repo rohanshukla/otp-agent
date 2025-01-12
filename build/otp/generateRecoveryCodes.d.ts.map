@@ -1,0 +1,1 @@
+{"version":3,"file":"generateRecoveryCodes.d.ts","sourceRoot":"","sources":["../../src/otp/generateRecoveryCodes.ts"],"names":[],"mappings":"AAGA,UAAU,0BAA0B;IAClC,aAAa,EAAE,MAAM,CAAC;IACtB,UAAU,EAAE,MAAM,CAAC;IACnB,QAAQ,CAAC,EAAE,KAAK,GAAG,QAAQ,GAAG,QAAQ,CAAC;CACxC;AA0BD,wBAAgB,qBAAqB,CAAC,EACpC,aAAa,EACb,UAAU,EACV,QAAgB,GACjB,EAAE,0BAA0B,GAAG,MAAM,EAAE,CAMvC"}

@@ -9,12 +9,12 @@ exports.generateCustomOTP = void 0;
 /**
  * Generate a custom OTP of the specified length using the provided characters.
  *
- * @param {string} characters - The custom characters for OTP generation.
  * @param {IPayload} options - Options for OTP generation.
+ * @param {string} options.characters - The custom characters for OTP generation.
  * @param {number} [options.length=6] - The length of the OTP.
  * @returns {string} - The generated OTP.
  */
-const generateCustomOTP = (characters, { length = 6 } = {}) => {
+const generateCustomOTP = ({ characters, length = 6, }) => {
     // Limit the length to a maximum of 100
     if (length > 100)
         length = 100;

@@ -15,6 +15,8 @@
   },
   "keywords": [
     "otp",
+    "otp-agent",
+    "otp agent",
     "one-time-password",
     "otp-generator",
     "otp-creator",
@@ -34,7 +36,9 @@
     "javascript-security",
     "token-generation",
     "time-based otp",
-    "generator"
+    "generator",
+    "recovery-codes",
+    "recovery-codes-generator"
   ],
   "author": "Rohan Shukla",
   "license": "MIT",
