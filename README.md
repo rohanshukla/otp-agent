@@ -9,12 +9,13 @@
 - [✨ Custom OTP](#-custom-otp)
 - [⏳ TOTP (Time-based One-Time Password)](#-totp-time-based-one-time-password)
 - [🔐 HOTP (HMAC-based One-Time Password)](#-hotp-hmac-based-one-time-password)
+- [🔐 Recovery Code](#-recovery-code)
 - [👨‍💻 Author](#-author)
 - [📄 License](#-license)
 
 ## 📖 Overview
 
-`otp-agent` is a JavaScript package designed for generating one-time passwords (OTPs). It supports various types of OTPs, including custom OTPs, Time-based One-Time Passwords (TOTP), and HMAC-based One-Time Passwords (HOTP). This package is useful for implementing secure authentication mechanisms in your applications.
+`otp-agent` is a JavaScript package designed for generating one-time passwords (OTPs). It supports various types of OTPs, including custom OTPs, Time-based One-Time Passwords (TOTP), HMAC-based One-Time Passwords (HOTP), and recovery codes. This package is useful for implementing secure authentication mechanisms in your applications.
 
 ### 💡 Use Cases
 
@@ -24,6 +25,7 @@
 - **✨ Custom OTP Requirements**: Generate OTPs with specific character sets for specialized use cases.
 - **⏳ TOTP**: Generate time-based OTPs that change after a specified period, ideal for time-sensitive authentication.
 - **🔐 HOTP**: Generate counter-based OTPs that change with each authentication attempt, suitable for systems requiring persistent OTPs until used.
+- **🔐 Recovery Codes**: Provide backup authentication methods when the primary OTP (OTP, TOTP, HOTP) method is unavailable.
 
 ## 🛠️ Installation
 
@@ -141,6 +143,26 @@ console.log(hotp); // 654321
 - **`digits`** (optional): The number of digits in the OTP. Default is 6.
 - **`algorithm`** (optional): The hashing algorithm to use (e.g., 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'). Default is 'SHA-1'.
 - **`encoding`** (optional): The encoding of the secret key (e.g., 'ascii', 'hex', 'base32', 'base64'). Default is 'base32'.
+
+## 🔐 Recovery Code
+
+Recovery codes are used as a backup method for authentication when the primary OTP method is unavailable. These codes are typically generated in advance and stored securely by the user.
+
+```js
+import { generateRecoveryCodes } from "otp-agent";
+
+const recoveryCodes = generateRecoveryCodes({
+  numberOfCodes: 4,
+  codeLength: 8,
+});
+console.log(recoveryCodes); // ['44ba0b8c', '3a550413', 'f7cb9a40', '046ee4a0']
+```
+
+### Arguments
+
+- **`numberOfCodes`**: The number of recovery codes to generate.
+- **`codeLength`**: The length of each recovery code.
+- **`encoding`** (optional): The encoding of the recovery codes (e.g., 'hex', 'base32', 'base64'). Default is 'hex'.
 
 ## 👨‍💻 Author
 
